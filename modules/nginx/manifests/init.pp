@@ -20,9 +20,24 @@ class nginx {
 		notify => Service['nginx'],
 	}
 	
+	file { '/var/www':
+		ensure => directory,
+	}
+
+	file { '/var/www/cat-pictures':
+		ensure => directory,
+	}
+
 	file { '/var/www/cat-pictures/index.html':
 		source => 'puppet:///modules/nginx/index.html',
 	}
+
+	file { '/var/www/hello.txt':
+		ensure => present,
+		content => "hello",
+	}
+
+
 	
 #	service { 'rem':
 #		ensure => running,
