@@ -1,5 +1,14 @@
 # Manage nginx webserver
 class nginx {
+
+	package { 'git':
+		ensure => installed,
+	}
+	
+	package { 'curl':
+		ensure => installed,
+	}
+	
 	package { 'apache2.2-common':
 		ensure => absent,
 	}
